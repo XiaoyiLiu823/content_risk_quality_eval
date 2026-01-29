@@ -34,7 +34,6 @@ def train_and_score(cfg: Config, df_train: pd.DataFrame, df_test: pd.DataFrame) 
                     C=cfg.lr_C,
                     max_iter=cfg.lr_max_iter,
                     solver="liblinear",  # stable for binary classification
-                    n_jobs=1,
                 ),
             ),
         ]
@@ -49,3 +48,4 @@ def train_and_score(cfg: Config, df_train: pd.DataFrame, df_test: pd.DataFrame) 
     df_scored["score"] = proba.astype(float)
 
     return df_scored
+
